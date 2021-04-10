@@ -1,6 +1,13 @@
 
-flv.js  [![npm](https://img.shields.io/npm/v/flv.js.svg?style=flat)](https://www.npmjs.com/package/flv.js)
+flv.js
 ======
+
+## Mention
+> [forked from Bilibili/flv.js](https://github.com/Bilibili/flv.js)
+
+We fork origin repository and made some change for our use;
+
+## Abstracts
 An HTML5 Flash Video (FLV) Player written in pure JavaScript without Flash. LONG LIVE FLV!
 
 This project relies on [Media Source Extensions][] to work.
