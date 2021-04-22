@@ -166,7 +166,6 @@ class FetchStreamLoader extends BaseLoader {
   }
 
   abort() {
-    this._abortController.abort();
     this._requestAbort = true;
   }
 
