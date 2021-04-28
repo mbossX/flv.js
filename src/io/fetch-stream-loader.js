@@ -93,7 +93,8 @@ class FetchStreamLoader extends BaseLoader {
       cache: 'default',
       // The default policy of Fetch API in the whatwg standard
       // Safari incorrectly indicates 'no-referrer' as default policy, fuck it
-      referrerPolicy: 'no-referrer-when-downgrade'
+      referrerPolicy: 'no-referrer-when-downgrade',
+      signal: this._abortController.signal
     };
 
     // add additional headers
@@ -124,6 +125,7 @@ class FetchStreamLoader extends BaseLoader {
       if (this._requestAbort) {
         this._requestAbort = false;
         this._status = LoaderStatus.kIdle;
+        this._abortController.abort();
         return;
       }
       if (res.ok && (res.status >= 200 && res.status <= 299)) {
@@ -167,6 +169,7 @@ class FetchStreamLoader extends BaseLoader {
 
   abort() {
     this._requestAbort = true;
+    this._abortController.abort();
   }
 
   _pump(reader) {  // ReadableStreamReader
